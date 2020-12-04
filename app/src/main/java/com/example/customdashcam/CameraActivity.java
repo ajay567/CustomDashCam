@@ -737,6 +737,7 @@ public class CameraActivity extends AppCompatActivity implements LocationListene
     }
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -782,6 +783,7 @@ public class CameraActivity extends AppCompatActivity implements LocationListene
             public void onClick(View v) {
                 if (mIsRecording || mIsTimelapse) {
                     mChronometer.stop();
+
                     mChronometer.setVisibility(View.INVISIBLE);
                     mIsRecording = false;
                     mIsTimelapse = false;

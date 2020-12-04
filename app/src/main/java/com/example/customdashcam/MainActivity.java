@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ImageView recordPage = findViewById(R.id.imageView);
+        final Button recordPage = findViewById(R.id.HomeRecordParam);
 
         recordPage.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,28 +11,17 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/VideoPreview"
-            android:layout_width="110dp"
-            android:layout_height="67dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="48dp"
-            android:text="HUD"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/HomeRecordParam"
-            app:layout_constraintTop_toBottomOf="@+id/VideoQuality" />
-
-        <Button
             android:id="@+id/HomeRecordParam"
             android:layout_width="110dp"
             android:layout_height="67dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="36dp"
             android:text="Start Record"
-            app:layout_constraintEnd_toStartOf="@+id/VideoPreview"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/StartPreview"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/VideoQuality" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <Button
             android:id="@+id/StartPreview"
@@ -40,23 +29,24 @@
             android:layout_height="67dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="36dp"
             android:text="Gallery"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/VideoPreview" />
+            app:layout_constraintStart_toEndOf="@+id/HomeRecordParam"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="110dp"
-            android:layout_height="67dp"
+            android:layout_width="210dp"
+            android:layout_height="218dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="36dp"
             android:src="@drawable/ic_baseline_camera_alt_24"
-            app:layout_constraintEnd_toStartOf="@+id/StartPreview"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/HomeRecordParam" />
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <LinearLayout
             android:id="@+id/wrapper2"
@@ -71,43 +61,18 @@
 
         </LinearLayout>
 
-        <Spinner
-            android:id="@+id/VideoDuration"
-            android:layout_width="170dp"
-            android:layout_height="45dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="48dp"
-            android:background="#33585A49"
-            android:backgroundTint="#FF9800"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <Spinner
-            android:id="@+id/VideoQuality"
-            android:layout_width="170dp"
-            android:layout_height="45dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:background="#33FFEB3B"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/VideoDuration" />
-
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="330dp"
+            android:layout_height="102dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
+            android:fontFamily="@font/berkshire_swash"
             android:gravity="center"
             android:text="Welcome To DashCam!"
             android:textColor="#FF5722"
-            android:textSize="24sp"
+            android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
