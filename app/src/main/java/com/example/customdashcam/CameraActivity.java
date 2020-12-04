@@ -690,6 +690,14 @@ public class CameraActivity extends AppCompatActivity implements LocationListene
 
     TextView tv_speed;
     SwitchCompat sw_metric;
+    TextView tv_roadName;
+    TextView tv_speedLimit;
+
+    TextView tv_roadType;
+    TextView tv_numOfLanes;
+    TextView tv_oneWay;
+    TextView tv_driveOn;
+
 
     @Override
     public void onLocationChanged(Location location) {
@@ -698,8 +706,8 @@ public class CameraActivity extends AppCompatActivity implements LocationListene
             this.updateSpeed(myLocation);
 
             // Test coordinate - Prices Fork Road in Blacksburg, VA
-            // double lat = 37.22394;
-            // double lng = -80.4485;
+//             double lat = 37.22394;
+//             double lng = -80.4485;
 
             double lat = (double) (location.getLatitude());
             double lng = (double) (location.getLongitude());
@@ -774,6 +782,7 @@ public class CameraActivity extends AppCompatActivity implements LocationListene
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
+        // NOTE: Use the "actual url" when doing testing while driving to get accurate info.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, urlWithTestKey,
                 new Response.Listener<String>() {
                     @Override
@@ -791,10 +800,32 @@ public class CameraActivity extends AppCompatActivity implements LocationListene
                             JSONObject obj = results.getJSONObject(0);
                             JSONObject annotations = obj.getJSONObject("annotations");
                             JSONObject roadInfo = annotations.getJSONObject("roadinfo");
-                            int maxSpeed = roadInfo.getInt("maxspeed");
+                            int maxSpeed = roadInfo.optInt("maxspeed");
+                            String speedIn = roadInfo.optString("speed_in");
 
-                            System.out.println("Max speed:");
-                            System.out.println(maxSpeed);
+
+                            String maxSpeedStr = maxSpeed + " " + speedIn;
+                            String roadName = roadInfo.optString("road");
+
+                            String roadType = roadInfo.optString("road_type");
+                            int numOfLanes = roadInfo.optInt("lanes");
+                            String oneWay = roadInfo.optString("oneway", "n/a");
+                            String driveOn = roadInfo.optString("drive_on");
+
+//                            System.out.println("Road name:");
+//                            System.out.println(roadName);
+//
+//                            System.out.println("Max speed:");
+//                            System.out.println(maxSpeed);
+
+                            // display road info
+                            tv_roadName.setText(roadName);
+                            tv_speedLimit.setText(maxSpeedStr);
+                            tv_roadType.setText(roadType);
+                            tv_numOfLanes.setText(String.valueOf(numOfLanes));
+                            tv_oneWay.setText(oneWay);
+                            tv_driveOn.setText(driveOn);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -826,6 +857,20 @@ public class CameraActivity extends AppCompatActivity implements LocationListene
 
         tv_speed = findViewById(R.id.speedoMeter);
         sw_metric = findViewById(R.id.switch1);
+        tv_roadName = findViewById(R.id.roadNameVal);
+        tv_speedLimit = findViewById(R.id.speedLimitVal);
+
+        tv_roadType = findViewById(R.id.roadTypeVal);
+        tv_numOfLanes = findViewById(R.id.numOfLanesVal);
+        tv_oneWay = findViewById(R.id.oneWayVal);
+        tv_driveOn = findViewById(R.id.driveOnVal);
+
+
+
+        TextView tv_roadType;
+        TextView tv_NumOfLanes;
+        TextView tv_oneWay;
+        TextView tv_DriveOn;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
             requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1000);
