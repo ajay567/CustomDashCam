@@ -46,12 +46,12 @@
 
     <TextView
         android:id="@+id/speedoMeter"
-        android:layout_width="146dp"
+        android:layout_width="106dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="11dp"
         android:layout_marginBottom="665dp"
-        android:layout_marginEnd="6dp"
         android:fontFamily="@font/baloo"
         android:text="0 km/h"
         android:textColor="#03A9F4"
@@ -67,5 +67,150 @@
         android:layout_marginEnd="21dp"
         android:text="Metric"
         android:textColor="#03A9F4" />
+
+    <TextView
+        android:id="@+id/speedLimitText"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="272dp"
+        android:layout_marginBottom="580dp"
+        android:text="Speed Limit:"
+        android:textColor="#FF5722"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/speedLimitVal"
+        android:layout_width="92dp"
+        android:layout_height="31dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="296dp"
+        android:layout_marginBottom="541dp"
+        android:text="0 mph"
+        android:textColor="#FF5722"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/roadNameVal"
+        android:layout_width="126dp"
+        android:layout_height="53dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="625dp"
+        android:textColor="#333333"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/roadNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="686dp"
+        android:text="Road Name:"
+        android:textColor="#333333"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/roadTypeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="600dp"
+        android:text="Type:"
+        android:textColor="#673AB7"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/roadTypeVal"
+        android:layout_width="159dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="71dp"
+        android:layout_marginBottom="600dp"
+        android:textColor="#673AB7"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/numOfLanesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="566dp"
+        android:text="Num of Lanes:"
+        android:textColor="#E91E63"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/numOfLanesVal"
+        android:layout_width="56dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="147dp"
+        android:layout_marginBottom="566dp"
+        android:textColor="#E91E63"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/oneWayVal"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="97dp"
+        android:layout_marginBottom="533dp"
+        android:textColor="#009688"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/driveOnText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="501dp"
+        android:text="Drive on:"
+        android:textColor="#3F51B5"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/driveOnVal"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="99dp"
+        android:layout_marginBottom="501dp"
+        android:textColor="#3F51B5"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/oneWayText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="533dp"
+        android:text="Oneway:"
+        android:textColor="#009688"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
