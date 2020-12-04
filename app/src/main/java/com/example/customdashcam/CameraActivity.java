@@ -47,6 +47,17 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -685,6 +696,15 @@ public class CameraActivity extends AppCompatActivity implements LocationListene
         if (location != null) {
             CLocation myLocation = new CLocation(location, this.useMetricUnits());
             this.updateSpeed(myLocation);
+
+            // Test coordinate - Prices Fork Road in Blacksburg, VA
+            // double lat = 37.22394;
+            // double lng = -80.4485;
+
+            double lat = (double) (location.getLatitude());
+            double lng = (double) (location.getLongitude());
+
+            this.getMaxSpeed(lat, lng);
         }
 
     }
@@ -727,6 +747,8 @@ public class CameraActivity extends AppCompatActivity implements LocationListene
         String strCurrentSpeed = fmt.toString();
         strCurrentSpeed = strCurrentSpeed.replace(" ", "0");
 
+
+
         if (this.useMetricUnits()) {
             tv_speed.setText(strCurrentSpeed + " km/h");
         }
@@ -734,6 +756,65 @@ public class CameraActivity extends AppCompatActivity implements LocationListene
             tv_speed.setText(strCurrentSpeed + " mph");
         }
 
+    }
+
+    /**
+     * Get the speed limit of a road along with other useful information.
+     * @param lat latitude.
+     * @param lng longitude.
+     */
+    public void getMaxSpeed(double lat, double lng) {
+
+         // Actual url (with real key)
+         String url = "https://api.opencagedata.com/geocode/v1/json?q=" + lat +  "," + lng + "&key=b8512b1311904249a207cd93af125c7a&roadinfo=1&pretty=1";
+
+        // URL with test key - Note the response will be as if the q (i.e. lat and long) parameter of
+        // the request had been 51.952659,7.632473 regardless of what was actually specified.
+        String urlWithTestKey = "https://api.opencagedata.com/geocode/v1/json?q=" + lat +  "," + lng + "&key=6d0e711d72d74daeb2b0bfd2a5cdfdba&roadinfo=1&pretty=1";
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, urlWithTestKey,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // enjoy your response
+                        System.out.println("--------HTTP Request Success - Start-----");
+                        System.out.println(response);
+
+                        JSONObject reader = null;
+                        try {
+
+                            // Parsing the speed limit from JSON response
+                            reader = new JSONObject(response);
+                            JSONArray results  = reader.getJSONArray("results");
+                            JSONObject obj = results.getJSONObject(0);
+                            JSONObject annotations = obj.getJSONObject("annotations");
+                            JSONObject roadInfo = annotations.getJSONObject("roadinfo");
+                            int maxSpeed = roadInfo.getInt("maxspeed");
+
+                            System.out.println("Max speed:");
+                            System.out.println(maxSpeed);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                        System.out.println("--------HTTP Request Success - End-----");
+
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // enjoy your error status
+                System.out.println("--------HTTP Request Error-----");
+                System.out.println(error);
+
+            }
+        });
+
+        queue.add(stringRequest);
     }
 
 
