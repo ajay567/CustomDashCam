@@ -23,6 +23,19 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, CameraActivity.class);
                 startActivity(intent);
+
+            }
+        });
+
+        final Button galleryPage = findViewById(R.id.StartPreview);
+
+        galleryPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
+                startActivity(intent);
+
             }
         });
 
