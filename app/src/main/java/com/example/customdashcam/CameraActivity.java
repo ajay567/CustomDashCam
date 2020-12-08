@@ -894,16 +894,16 @@ public class CameraActivity extends AppCompatActivity implements LocationListene
 
         mChronometer = (Chronometer) findViewById(R.id.chronometer);
         mTextureView = (TextureView) findViewById(R.id.textureView);
-        mStillImageButton = (ImageButton) findViewById(R.id.cameraImageButton2);
-        mStillImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!(mIsTimelapse || mIsRecording)) {
-                    checkWriteStoragePermission();
-                }
-                lockFocus();
-            }
-        });
+//        mStillImageButton = (ImageButton) findViewById(R.id.cameraImageButton2);
+//        mStillImageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(!(mIsTimelapse || mIsRecording)) {
+//                    checkWriteStoragePermission();
+//                }
+//                lockFocus();
+//            }
+//        });
         mRecordImageButton = (ImageButton) findViewById(R.id.videoOnlineImageButton);
         mRecordImageButton.setOnClickListener(new View.OnClickListener() {
             @Override

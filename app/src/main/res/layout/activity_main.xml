@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#2DDE21F3">
 
         <Button
             android:id="@+id/HomeRecordParam"
@@ -17,6 +18,8 @@
             android:layout_marginEnd="48dp"
             android:layout_marginStart="48dp"
             android:layout_marginTop="36dp"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/arbutus"
             android:text="Start Record"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/StartPreview"
@@ -30,6 +33,8 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="36dp"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/arbutus"
             android:text="Gallery"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +48,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="36dp"
-            android:src="@drawable/ic_baseline_camera_alt_24"
+            android:src="@drawable/dashsafeicon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -70,7 +75,7 @@
             android:layout_marginTop="24dp"
             android:fontFamily="@font/berkshire_swash"
             android:gravity="center"
-            android:text="Welcome To DashCam!"
+            android:text="Welcome To DashSafe!"
             android:textColor="#FF5722"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
