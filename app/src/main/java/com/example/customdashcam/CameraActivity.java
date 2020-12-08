@@ -775,7 +775,7 @@ public class CameraActivity extends AppCompatActivity implements LocationListene
     public void getMaxSpeed(double lat, double lng) {
 
          // Actual url (with real key)
-         String url = "https://api.opencagedata.com/geocode/v1/json?q=" + lat +  "," + lng + "&key=b8512b1311904249a207cd93af125c7a&roadinfo=1&pretty=1";
+         String url = "https://api.opencagedata.com/geocode/v1/json?q=" + lat +  "," + lng + "&key=80cea7605fc342839231b5b771892f4e&roadinfo=1&pretty=1";
 
         // URL with test key - Note the response will be as if the q (i.e. lat and long) parameter of
         // the request had been 51.952659,7.632473 regardless of what was actually specified.
@@ -784,7 +784,7 @@ public class CameraActivity extends AppCompatActivity implements LocationListene
         RequestQueue queue = Volley.newRequestQueue(this);
 
         // NOTE: Use the "actual url" when doing testing while driving to get accurate info.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, urlWithTestKey,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
